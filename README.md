@@ -43,3 +43,7 @@ Nongoals:
 # References
 - Style used to format site:
   [simple.css on GitHub](https://github.com/kevquirk/simple.css/)
+- Some guides I used:
+  - <https://hackersandslackers.com/your-first-flask-application/>
+  - <https://hackersandslackers.com/flask-sqlalchemy-database-models/>
+  - <https://hackersandslackers.com/flask-sqlalchemy-database-models/>
