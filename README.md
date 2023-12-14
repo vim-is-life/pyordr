@@ -47,3 +47,5 @@ Nongoals:
   - <https://hackersandslackers.com/your-first-flask-application/>
   - <https://hackersandslackers.com/flask-sqlalchemy-database-models/>
   - <https://hackersandslackers.com/flask-sqlalchemy-database-models/>
+- Enums in python:
+  <https://docs.python.org/3/howto/enum.html>
