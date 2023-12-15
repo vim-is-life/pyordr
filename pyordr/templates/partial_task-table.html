@@ -25,7 +25,7 @@
             <td>
                 <a href="{{ url_for('.task_detail', id=task.id) }}">{{ task.name }}</a>
             </td>
-            <td>{{ task.date_added.strftime('%d %b %y') }}</td>
+            <td class="hide-on-mobile">{{ task.date_added.strftime('%m/%d') }}</td>
             <td>{{ task.description }}</td>
             <td>{{ task.state }}</td>
             <td>

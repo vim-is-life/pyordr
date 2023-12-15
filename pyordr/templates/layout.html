@@ -13,6 +13,21 @@
         <script type="text/javascript" src="{{ url_for('static', filename='htmx.min.js') }}"> </script>
 
         <style type="text/css">
+            @media screen and (max-width: 375px) {
+                :root {
+                    --base-fontsize: 0.86rem;
+                }
+            }
+            @media screen and (min-width: 400px) {
+                body {
+                    max-width: 55rem;
+                }
+            }
+            .hide-on-mobile{
+                @media screen and (max-width: 375px) {
+                    display: none;
+                }
+            }
             .flat-a-btn {
                 text-decoration: none;
             }
@@ -27,6 +42,10 @@
             }
             .task-complete {
                 text-decoration: line-through;
+            }
+            div#newTaskBtn {
+                display: flex;
+                justify-content: center;
             }
         </style>
 
