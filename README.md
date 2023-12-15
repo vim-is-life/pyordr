@@ -41,6 +41,7 @@ Nongoals:
 - [x] Can use simple.css
 - [ ] Take out form to add new task, put it in own template, then add btn to navbar
       that will call to display the section to add a new task
+- [ ] Switch out current favicon for clipboard icon that I got from icofonts
 
 # References
 - Style used to format site:
@@ -57,3 +58,5 @@ Nongoals:
   <https://testdriven.io/blog/flask-htmx-tailwind/#live-search-example>
 - `datetime` format spec:
   <https://docs.python.org/3/library/datetime.html?highlight=strftime#strftime-and-strptime-format-codes>
+- Website used to help with color scheme:
+  <https://paletton.com>
