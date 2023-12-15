@@ -43,9 +43,13 @@
             .task-complete {
                 text-decoration: line-through;
             }
+            .center-div,
             div#newTaskBtn {
                 display: flex;
                 justify-content: center;
+            }
+            .center-div > button {
+                margin: 0.5rem 0.5rem;
             }
         </style>
 
@@ -62,7 +66,16 @@
         <![endif]-->
         <header>
             <nav>
-                <a href="{{ url_for('.index_page') }}">Home</a>
+                <!-- <a href="{{ url_for('.index_page') }}">Home</a> -->
+                <a hx-get="{{ url_for('.display_table') }}"
+                   hx-target="main"
+                   hx-swap="innerHTML"
+                   href="#">Home</a>
+                <!-- <a href="{{ url_for('.create_task') }}">Add Task</a> -->
+                <a hx-get="{{ url_for('.create_task') }}"
+                   hx-target="main"
+                   hx-swap="innerHTML"
+                   href="#">Add Task</a>
             </nav>
         </header>
 

@@ -7,7 +7,7 @@ from . import models
 main_blueprint = Blueprint(
     "main", __name__, template_folder="templates", static_folder="static"
 )
-COLUMN_NAMES = ("Name", "Added", "Desc", "State")
+# COLUMN_NAMES = ("Name", "Added", "Desc", "State")
 
 # tsk = models.Task(date_added=dt.now(), name="clean backyard")
 # models.db.session.add(tsk)
@@ -25,7 +25,7 @@ def render_tasks_table():
     possible_states = models.TaskState
     return render_template(
         "partial_task-table.html",
-        column_names=COLUMN_NAMES,
+        # column_names=COLUMN_NAMES,
         tasklist=tasks,
         valid_states=possible_states,
     )
@@ -37,24 +37,31 @@ def index_page():
     tasks = models.get_all_tasks()
     possible_states = models.TaskState
     return render_template(
-        "tasks-overview.html",
-        column_names=COLUMN_NAMES,
+        "index.html",
+        # column_names=COLUMN_NAMES,
         tasklist=tasks,
         valid_states=possible_states,
     )
 
 
-@main_blueprint.route("/createTask", methods=["POST"])
-def create_task():
-    models.add_task(
-        models.Task(
-            name=request.form["taskName"],
-            description=request.form["taskDescription"],
-            date_added=dt.now(),
-            state=models.TaskState.TO_BE_DONE,
-        )
-    )
+@main_blueprint.route("/showTable")
+def display_table():
     return render_tasks_table()
+
+
+@main_blueprint.route("/createTask", methods=["GET", "POST"])
+def create_task():
+    if request.method == "POST":
+        models.add_task(
+            models.Task(
+                name=request.form["taskName"],
+                description=request.form["taskDescription"],
+                date_added=dt.now(),
+                state=models.TaskState.TO_BE_DONE,
+            )
+        )
+        return render_tasks_table()
+    return render_template("partial_create-task.html")
 
 
 @main_blueprint.route("/toggleTaskState/<int:id>", methods=["PUT"])
@@ -69,12 +76,12 @@ def delete_task(id):
     return render_tasks_table()
 
 
-@main_blueprint.route("/updateTaskInfo/<int:id>")
-def update_task_info():
+@main_blueprint.route("/updateTaskInfo/<int:id>", methods=["GET", "PUT"])
+def update_task_info(id):
     return "<h1><code>update_task_info</code> not implemented yet!</h1>"
 
 
 @main_blueprint.route("/taskDetail/<int:id>")
 def task_detail(id):
     task = models.get_task(id)
-    return "<h1><code>task_detail</code> not implemented yet!</h1>"
+    return render_template("partial_task-detail.html", task=task)

@@ -1,0 +1,49 @@
+<h2 class="center">Task Detail:</h2>
+<!-- <h2>{{ task.name }}</h2> -->
+<table>
+    <tbody>
+        <tr>
+            <td>Name:</td>
+            <td>{{ task.name }}</td>
+        </tr>
+        <tr>
+            <td>Added On:</td>
+            <td>{{ task.date_added.strftime('%B %d, %Y at %H:%M:%S') }}</td>
+        </tr>
+        {% if task.date_completed %}
+            <tr>
+                <td>Completed On:</td>
+                <td>{{ task.date_completed.strftime('%B %d, %Y at %H:%M:%S') }}</td>
+            </tr>
+        {% endif %}
+        {% if task.description %}
+            <tr>
+                <td>Description:</td>
+                <td>{{ task.description }}</td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td>Status:</td>
+            <td>{{ task.state }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="center-div">
+    <button hx-put="{{ url_for('.toggle_task_state', id=task.id) }}"
+            hx-target="main"
+            hx-swap="innerHTML">
+        <i class="icofont-check-alt"></i>
+    </button>
+    <button hx-put="{{ url_for('.update_task_info', id=task.id) }}"
+            hx-target="main"
+            hx-swap="innerHTML">
+        <i class="icofont-pencil"></i>
+    </button>
+    <button hx-delete="{{ url_for('.delete_task', id=task.id) }}"
+            hx-confirm="Are you sure you want to delete this task?"
+            hx-target="main"
+            hx-swap="innerHTML">
+        <i class="icofont-duotone icofont-purge"></i>
+    </button>
+</div>
