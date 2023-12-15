@@ -22,9 +22,13 @@ COLUMN_NAMES = ("Name", "Date Added", "Description", "State")
 
 def render_tasks_table():
     tasks = models.get_all_tasks()
+    possible_states = models.TaskState
     print(tasks)
     return render_template(
-        "partial_task-table.html", column_names=COLUMN_NAMES, tasklist=tasks
+        "partial_task-table.html",
+        column_names=COLUMN_NAMES,
+        tasklist=tasks,
+        valid_states=possible_states,
     )
 
 
@@ -32,8 +36,12 @@ def render_tasks_table():
 def index_page():
     """Render the index page which shows a view of all registered tasks."""
     tasks = models.get_all_tasks()
+    possible_states = models.TaskState
     return render_template(
-        "tasks-overview.html", column_names=COLUMN_NAMES, tasklist=tasks
+        "tasks-overview.html",
+        column_names=COLUMN_NAMES,
+        tasklist=tasks,
+        valid_states=possible_states,
     )
 
 
@@ -52,7 +60,8 @@ def create_task():
 
 @main_blueprint.route("/toggleTaskState/<int:id>", methods=["PUT"])
 def toggle_task_state(id):
-    return "<h1><code>toggle_task_state</code> not implemented yet!</h1>"
+    models.toggle_state(id)
+    return render_tasks_table()
 
 
 @main_blueprint.route("/deleteTask/<int:id>", methods=["DELETE"])
