@@ -49,3 +49,9 @@ Nongoals:
   - <https://hackersandslackers.com/flask-sqlalchemy-database-models/>
 - Enums in python:
   <https://docs.python.org/3/howto/enum.html>
+- Jinja2 templates reference:
+  <https://jinja.palletsprojects.com/en/3.1.x/templates/>
+- Article on using htmx with Flask:
+  <https://testdriven.io/blog/flask-htmx-tailwind/#live-search-example>
+- `datetime` format spec:
+  <https://docs.python.org/3/library/datetime.html?highlight=strftime#strftime-and-strptime-format-codes>
