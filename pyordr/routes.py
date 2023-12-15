@@ -23,7 +23,6 @@ COLUMN_NAMES = ("Name", "Date Added", "Description", "State")
 def render_tasks_table():
     tasks = models.get_all_tasks()
     possible_states = models.TaskState
-    print(tasks)
     return render_template(
         "partial_task-table.html",
         column_names=COLUMN_NAMES,
