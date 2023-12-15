@@ -39,7 +39,7 @@ Nongoals:
 - [x] Need to know how to template out my overview and my details page
 - [x] Need to know how to define routes and have different things be handled based on the route
 - [x] Can use simple.css
-- [ ] Take out form to add new task, put it in own template, then add btn to navbar
+- [x] Take out form to add new task, put it in own template, then add btn to navbar
       that will call to display the section to add a new task
 - [ ] Switch out current favicon for clipboard icon that I got from icofonts
 
