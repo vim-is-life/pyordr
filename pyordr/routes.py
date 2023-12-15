@@ -65,7 +65,8 @@ def toggle_task_state(id):
 
 @main_blueprint.route("/deleteTask/<int:id>", methods=["DELETE"])
 def delete_task(id):
-    return "<h1><code>delete_task</code> not implemented yet!</h1>"
+    models.remove_task(id)
+    return render_tasks_table()
 
 
 @main_blueprint.route("/updateTaskInfo/<int:id>")

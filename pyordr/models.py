@@ -68,7 +68,9 @@ def toggle_state(task_id: int):
 
 
 def remove_task(task_id: int):
-    pass
+    task = db.get_or_404(Task, task_id)
+    db.session.delete(task)
+    db.session.commit()
 
 
 def update_task(new_task_info: Task):
