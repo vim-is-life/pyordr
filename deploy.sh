@@ -6,9 +6,8 @@ set -e
 # fi
 
 
-# SERVICE_DIR="/etc/systemd/user"
-SERVICE_DIR="/etc/systemd/system"
-SERVICE_USER=$USER
+# SERVICE_DIR="$(pkg-config systemd --variable=systemduserunitdir)"
+SERVICE_DIR="$(pkg-config systemd --variable=systemdsystemunitdir)"
 PROJECT_DIR="$(pwd)"
 APP_PORT=5100
 NUM_WORKERS=$(($(nproc) * 2))
