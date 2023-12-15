@@ -7,7 +7,7 @@ from . import models
 main_blueprint = Blueprint(
     "main", __name__, template_folder="templates", static_folder="static"
 )
-COLUMN_NAMES = ("Name", "Date Added", "Description", "State")
+COLUMN_NAMES = ("Name", "Added", "Desc", "State")
 
 # tsk = models.Task(date_added=dt.now(), name="clean backyard")
 # models.db.session.add(tsk)
