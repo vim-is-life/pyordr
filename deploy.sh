@@ -6,8 +6,10 @@ set -e
 # fi
 
 
-# SERVICE_DIR="$(pkg-config systemd --variable=systemduserunitdir)"
-SERVICE_DIR="$(pkg-config systemd --variable=systemdsystemunitdir)"
+# # SERVICE_DIR="$(pkg-config systemd --variable=systemduserunitdir)"
+# SERVICE_DIR="$(pkg-config systemd --variable=systemdsystemunitdir)"
+SERVICE_DIR="/etc/systemd/system"
+$SERVICE_USER=$USER
 PROJECT_DIR="$(pwd)"
 APP_PORT=5100
 NUM_WORKERS=$(($(nproc) * 2))
@@ -24,7 +26,7 @@ After=network.target
 
 [Service]
 User=$SERVICE_USER
-Group=www-data
+# Group=www-data
 WorkingDirectory=$PROJECT_DIR
 Environment="PATH=$PROJECT_DIR/.venv/bin"
 ExecStart=$PROJECT_DIR/.venv/bin/gunicorn -b 0.0.0.0:$APP_PORT -w $NUM_WORKERS wsgi:app
