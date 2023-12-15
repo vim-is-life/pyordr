@@ -36,9 +36,11 @@ Nongoals:
   so there's not much of a use to have multiple users with different roles
 
 ## Thoughts/Ideas
-- Need to know how to template out my overview and my details page
-- Need to know how to define routes and have different things be handled based on the route
-- Can use simple.css
+- [x] Need to know how to template out my overview and my details page
+- [x] Need to know how to define routes and have different things be handled based on the route
+- [x] Can use simple.css
+- [ ] Take out form to add new task, put it in own template, then add btn to navbar
+      that will call to display the section to add a new task
 
 # References
 - Style used to format site:
