@@ -1,0 +1,25 @@
+<h2 class="center">Edit Task</h2>
+
+<form id="updateTaskForm">
+    <!-- short name of todo -->
+    <label for="newName">Updated task name?</label>
+    <input type="text" name="newName" id="newName"
+           value="{{ task.name }}" />
+    <br />
+
+    <!-- longer input for task desc -->
+    <label for="newDescription">New description for task?</label>
+    <br />
+    <textarea name="newDescription" id="newDescription"
+              maxlength="2000">{{ task.description }}</textarea>
+    <br />
+
+    <!-- button to turn in new task -->
+    <div class="center-div">
+        <button hx-put="{{ url_for('main.update_task_info', id=task.id) }}"
+                hx-target="main"
+                hx-swap="innerHTML">
+            Update task!
+        </button>
+    </div>
+</form>

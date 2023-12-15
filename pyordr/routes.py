@@ -78,7 +78,20 @@ def delete_task(id):
 
 @main_blueprint.route("/updateTaskInfo/<int:id>", methods=["GET", "PUT"])
 def update_task_info(id):
-    return "<h1><code>update_task_info</code> not implemented yet!</h1>"
+    # we pass the id for the orm to be able to update the relevant changes, but
+    # other than that the only thing we allow is changed the name and
+    # description. state changes should be made from the overview or details
+    # screen.
+    if request.method == "PUT":
+        new_task_info = models.Task(
+            id=id,
+            name=request.form["newName"],
+            description=request.form["newDescription"],
+        )
+        models.update_task(id, new_task_info)
+        return render_tasks_table()
+    task_to_update = models.get_task(id)
+    return render_template("partial_edit-task.html", task=task_to_update)
 
 
 @main_blueprint.route("/taskDetail/<int:id>")

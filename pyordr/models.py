@@ -73,5 +73,8 @@ def remove_task(task_id: int):
     db.session.commit()
 
 
-def update_task(new_task_info: Task):
-    pass
+def update_task(task_id: int, new_task_info: Task):
+    task_to_update = db.get_or_404(Task, task_id)
+    task_to_update.name = new_task_info.name
+    task_to_update.description = new_task_info.description
+    db.session.commit()
