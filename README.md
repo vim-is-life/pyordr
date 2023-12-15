@@ -60,3 +60,11 @@ Nongoals:
   <https://docs.python.org/3/library/datetime.html?highlight=strftime#strftime-and-strptime-format-codes>
 - Website used to help with color scheme:
   <https://paletton.com>
+- Flask-SQLAlchemy quickstart guide:
+  <https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/quickstart/>
+- Example media queries in CSS:
+  <https://www.w3schools.com/css/css3_mediaqueries_ex.asp>
+- Deploying Flask app with Nginx and uWSGI:
+  <https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04#step-4-configuring-uwsgi>
+- One of the articles I used to decide between gunicorn and uWSGI:
+  <https://medium.com/django-deployment/which-wsgi-server-should-i-use-a70548da6a83>
