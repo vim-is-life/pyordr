@@ -10,7 +10,11 @@
     </thead>
     <tbody>
         {% for task in tasklist %}
-        <tr>
+        <tr class="{% if task.state == valid_states.IN_PROGRESS %}
+                   task-in-progress
+                   {% elif task.state == valid_states.COMPLETE %}
+                   task-compelete
+                   {% endif %}">
             <td>
                 <a hx-put="{{ url_for('.toggle_task_state', id=task.id) }}" href="#"
                         hx-target="#tasks" hx-swap="innerHTML" class="flat-a-btn">
