@@ -16,11 +16,13 @@
     <br />
 
     <!-- button to turn in new task -->
-    <button hx-post="{{ url_for('main.create_task') }}"
-            hx-target="#tasks"
-            hx-swap="innerHTML">
-        Create task!
-    </button>
+    <div id="newTaskBtn">
+        <button hx-post="{{ url_for('main.create_task') }}"
+                hx-target="#tasks"
+                hx-swap="innerHTML">
+            Create task!
+        </button>
+    </div>
 </form>
 
 <h1 class="center">{% block title %}All Tasks{% endblock %}</h1>
