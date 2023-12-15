@@ -33,6 +33,16 @@ url("./fonts/icofont.woff") format("woff");
   -webkit-font-smoothing: antialiased;
 }
 
+.icofont-pencil:before
+{
+  content: "\ebf9";
+}
+
+.icofont-check-alt:before
+{
+  content: "\eed6";
+}
+
 .icofont-duotone.icofont-purge:before
 {
   content: "\13b95";
@@ -46,11 +56,6 @@ url("./fonts/icofont.woff") format("woff");
 .icofont-clip-board:before
 {
   content: "\ede5";
-}
-
-.icofont-check-alt:before
-{
-  content: "\eed6";
 }
 
 [class^="icofont-"].icofont-duotone,
