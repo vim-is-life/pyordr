@@ -13,7 +13,7 @@
         <tr class="{% if task.state == valid_states.IN_PROGRESS %}
                    task-in-progress
                    {% elif task.state == valid_states.COMPLETE %}
-                   task-compelete
+                   task-complete
                    {% endif %}">
             <td>
                 <a hx-put="{{ url_for('.toggle_task_state', id=task.id) }}" href="#"
