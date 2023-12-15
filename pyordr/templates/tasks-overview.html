@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form id="newTaskForm">
+    <!-- short name of todo -->
+    <label for="taskName">New task name?</label>
+    <input type="text" name="taskName" id="taskName" required />
+    <br />
+
+    <!-- longer input for task desc -->
+    <label for="taskDescription">Description for new task?</label>
+    <br />
+    <textarea name="taskDescription" id="taskDescription"
+              placeholder="(not mandatory, 2000 char max)"
+              maxlength="2000"></textarea>
+    <br />
+
+    <!-- button to turn in new task -->
+    <button hx-post="{{ url_for('main.create_task') }}"
+            hx-target="#tasks"
+            hx-swap="innerHTML">
+        Create task!
+    </button>
+</form>
+
+<h1>{% block title %}All Tasks{% endblock %}</h1>
+{% include "partial_task-table.html" %}
+{% endblock content %}
