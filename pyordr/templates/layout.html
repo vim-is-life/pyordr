@@ -5,8 +5,11 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="apple-touch-icon" type="image/jpeg" href="{{ url_for('static', filename='icon.jpg') }}">
+        <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='icon.jpg') }}">
+
         <link href="{{ url_for('static', filename='simple.css') }}" rel="stylesheet"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='htmx.min.js') }}"> </script>
         <!-- Place favicon.ico in the root directory -->
 
         <title>{% block title %}{% endblock %}</title>
@@ -21,7 +24,7 @@
         <![endif]-->
         <header>
             <nav>
-                <a href="{{ url_for('main.index') }}">Home</a>
+                <a href="{{ url_for('.index_page') }}">Home</a>
             </nav>
         </header>
 

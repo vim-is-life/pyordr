@@ -16,6 +16,9 @@ def create_app():
     with app.app_context():
         from . import routes
 
+        # from .models import Task, TaskState
+        # print(app.instance_path)
+
         # need this for routes to work
         app.register_blueprint(routes.main_blueprint)
 
