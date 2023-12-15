@@ -9,8 +9,18 @@
         <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='icon.jpg') }}">
 
         <link href="{{ url_for('static', filename='simple.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='icofont/icofont.min.css') }}" rel="stylesheet"/>
         <script type="text/javascript" src="{{ url_for('static', filename='htmx.min.js') }}"> </script>
-        <!-- Place favicon.ico in the root directory -->
+
+        <style type="text/css">
+            .flat-a-btn {
+                text-decoration: none;
+            }
+            .center {
+                text-align: center;
+            }
+        </style>
+
 
         <title>{% block title %}{% endblock %}</title>
     </head>
