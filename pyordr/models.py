@@ -56,13 +56,13 @@ def add_task(task_to_add: Task):
 
 
 def toggle_state(task_id: int):
-    task_to_update = db.session.get_or_404(Task, task_id)
+    task_to_update = db.get_or_404(Task, task_id)
     old_status = task_to_update.state
     new_status = TaskState(old_status)
     try:
-        new_status = TaskState(new_status + 1)
+        new_status = TaskState(new_status - 1)
     except:
-        new_status = TaskState(1)
+        new_status = TaskState(3)
     task_to_update.state = new_status
     db.session.commit()
 
